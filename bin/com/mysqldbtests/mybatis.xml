@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 指定Mybatis使用log4j -->
+  	<settings>
+     <setting name="logImpl" value="LOG4J"/>
+    </settings>
+	<!-- 配置别名 -->  
+    <typeAliases>  
+        <typeAlias type="com.mysqldbtests.Blog" alias="Blog" />  
+    </typeAliases>  
+    
+    <!-- 配置环境变量 --> 
+  	<environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://47.98.125.109:3306/YUIN?useSSL=false"/>
+        <property name="username" value="root"/>
+        <property name="password" value="rootroot"/>
+      </dataSource>
+    </environment>
+  </environments>
+
+  <!-- 配置mappers,映射文件,mybatis精髓-->
+  <mappers>
+  	 <mapper resource="com/mysqldbtests/BlogMapper.xml"/>
+  </mappers>
+</configuration>
